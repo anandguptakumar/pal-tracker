@@ -1,8 +1,5 @@
 package io.pivotal.tracker;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,8 +14,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         return t;
     }
 
-    @Override
-    public TimeEntry find(long id)  throws Exception {
+    public TimeEntry find(Long id)  throws Exception {
         TimeEntry found = null;
         try {
             for(TimeEntry t : allUsers){

@@ -6,3 +6,5 @@ applications:
   #env:
     #WELCOME_MESSAGE: Hello from Cloud Foundry
   host: psanand-pal-tracker-review
+  services:
+  - tracker-database
