@@ -5,12 +5,30 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.boot.actuate.metrics.CounterService;
+import org.springframework.boot.actuate.metrics.GaugeService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
 public class TimeEntryController {
-    public TimeEntryController( @Autowired TimeEntryRepository repo) {
-        this.repo = repo;
+
+
+   private final CounterService counter;
+   private final GaugeService gauge;
+
+
+    public TimeEntryController(
+            @Autowired  TimeEntryRepository timeEntriesRepo,
+            CounterService counter,
+            GaugeService gauge
+    ) {
+        this.repo = timeEntriesRepo;
+        this.counter = counter;
+        this.gauge = gauge;
     }
 
     private TimeEntryRepository repo;
